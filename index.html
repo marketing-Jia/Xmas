@@ -46,25 +46,11 @@
             line-height: 1.6;
         }
 
-        /* 頁面最上方圖片容器 */
-        .top-banner-container {
-            background-color: var(--color-white);
-            padding: 1rem 1rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-bottom: 2px solid rgba(58, 50, 44, 0.1);
-        }
-        .top-banner-img {
-            max-width: 200px; /* 稍微縮小 Logo 使整體更緊湊 */
-            height: auto;
-        }
-
         /* 標題區域 */
         .festive-header {
             background-color: var(--color-red);
             border-bottom: 8px solid var(--color-dark);
-            padding: 3.5rem 1rem; /* 縮減 Padding */
+            padding: 5rem 1rem;
             text-align: center;
             position: relative;
         }
@@ -89,7 +75,7 @@
             line-height: 1.2;
         }
 
-        /* 禮物卡片：調大 padding-top 以拉開文字與吊牌/蝴蝶結的距離 */
+        /* 禮物卡片 */
         .gift-box {
             border: 8px solid var(--color-dark); 
             border-radius: 3.5rem;
@@ -102,7 +88,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 7.5rem 1.2rem 2.5rem 1.2rem; /* padding-top 從 6rem 增加到 7.5rem */
+            padding: 7.5rem 1.2rem 2.5rem 1.2rem; 
             z-index: 1;
             box-shadow: 10px 10px 0px rgba(58, 50, 44, 0.15);
             background-color: var(--color-white);
@@ -116,11 +102,11 @@
         .gift-red { background-color: var(--color-red); }
         .gift-green { background-color: var(--color-green); }
 
-        /* 吊牌標籤：往角落移動一點，與蝴蝶結拉開距離 */
+        /* 吊牌標籤 */
         .id-tag-container {
             position: absolute;
-            top: 15px; /* 稍微上移 */
-            left: 15px; /* 稍微左移 */
+            top: 15px; 
+            left: 15px; 
             z-index: 40;
             transform: rotate(-12deg);
         }
@@ -128,13 +114,13 @@
         .id-tag-body {
             background-color: var(--color-yellow);
             border: 6px solid var(--color-dark);
-            width: 65px; /* 稍微縮小寬度 */
-            height: 85px; /* 稍微縮小高度 */
+            width: 65px; 
+            height: 85px; 
             border-radius: 1.2rem;
             display: flex;
             align-items: flex-end; 
             justify-content: center;
-            font-size: 2.2rem; /* 配合縮小尺寸調整字級 */
+            font-size: 2.2rem; 
             font-weight: 700;
             color: var(--color-dark);
             box-shadow: 4px 4px 0px rgba(58, 50, 44, 0.15);
@@ -195,7 +181,7 @@
             letter-spacing: 0.05em;
         }
 
-        /* 已選取遮罩：放大文字比例 */
+        /* 已選取遮罩 */
         .claimed-overlay {
             position: absolute;
             top: 0;
@@ -218,11 +204,11 @@
             pointer-events: auto;
         }
         .status-badge {
-            font-size: 2.2rem; /* 文字比例放大 (原 1.6rem) */
+            font-size: 2.2rem; 
             font-weight: 700;
             color: white;
             background-color: var(--color-red);
-            padding: 1.2rem 3rem; /* 增加內距 */
+            padding: 1.2rem 3rem; 
             border-radius: 4rem;
             border: 5px solid white;
             box-shadow: 0 8px 20px rgba(0,0,0,0.4);
@@ -278,11 +264,6 @@
 </head>
 <body>
 
-    <!-- 頁面最上方圖片區 -->
-    <div class="top-banner-container">
-        <img src="https://lurl.cc/LaNgW" alt="Top Banner" class="top-banner-img" onerror="this.style.display='none'">
-    </div>
-
     <header class="festive-header">
         <h1 class="header-text px-4">
             <span class="header-line-1">2025無限創意行銷</span>
@@ -290,7 +271,7 @@
         </h1>
         <div class="mt-6">
             <span class="text-lg md:text-2xl font-black bg-white text-dark px-12 py-5 rounded-full border-[8px] border-dark shadow-[12px 12px 0px rgba(0,0,0,0.15)] inline-block tracking-[0.4em]">
-                哪個禮物最適合你！
+                祝大家聖誕節快樂✨
             </span>
         </div>
         
