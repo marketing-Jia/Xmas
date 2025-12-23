@@ -168,4 +168,229 @@
             width: 95%;
             min-height: 4rem;
             background-color: var(--color-white);
-            border: 6px solid
+            border: 6px solid var(--color-dark);
+            border-radius: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0.6rem 1.2rem;
+            font-weight: 700;
+            font-size: 1.15rem;
+            line-height: 1.4;
+            color: var(--color-dark);
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.08);
+            letter-spacing: 0.05em;
+        }
+
+        /* 已選取遮罩 */
+        .claimed-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(58, 50, 44, 0.96);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            border-radius: 3rem;
+        }
+        .is-claimed .claimed-overlay {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .status-badge {
+            font-size: 2.2rem; 
+            font-weight: 700;
+            color: white;
+            background-color: var(--color-red);
+            padding: 1.2rem 3rem; 
+            border-radius: 4rem;
+            border: 5px solid white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            letter-spacing: 0.25em;
+            transform: scale(0.8);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            white-space: nowrap;
+        }
+        .is-claimed .status-badge {
+            transform: scale(1);
+        }
+
+        .reset-container {
+            text-align: center;
+            padding-bottom: 4rem;
+            margin-top: 3rem;
+        }
+        .reset-btn {
+            background-color: var(--color-yellow);
+            color: var(--color-dark);
+            border: 7px solid var(--color-dark);
+            padding: 1.2rem 4rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            border-radius: 5rem;
+            box-shadow: 8px 8px 0px var(--color-dark);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            letter-spacing: 0.1em;
+        }
+        .reset-btn:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 5px 5px 0px var(--color-dark);
+        }
+
+        .ornament {
+            position: absolute;
+            bottom: -35px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 6px solid var(--color-dark);
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+            animation: swing 4s ease-in-out infinite alternate;
+            transform-origin: top center;
+            z-index: 50;
+        }
+        @keyframes swing {
+            from { transform: rotate(-10deg); }
+            to { transform: rotate(10deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="festive-header">
+        <h1 class="header-text px-4">
+            <span class="header-line-1">2025無限創意行銷</span>
+            <span class="header-line-2">聖誕節交換禮物</span>
+        </h1>
+        <div class="mt-6">
+            <span class="text-lg md:text-2xl font-black bg-white text-dark px-12 py-5 rounded-full border-[8px] border-dark shadow-[12px 12px 0px rgba(0,0,0,0.15)] inline-block tracking-[0.4em]">
+                祝大家聖誕節快樂✨
+            </span>
+        </div>
+        
+        <div class="ornament bg-[#D9A05B] left-[12%]"></div>
+        <div class="ornament bg-[#3D6144] left-[32%] hidden md:block" style="animation-delay: -0.8s;"></div>
+        <div class="ornament bg-[#FFFFFF] left-[50%]" style="animation-delay: -1s;"></div>
+        <div class="ornament bg-[#3D6144] right-[32%] hidden md:block" style="animation-delay: -1.5s;"></div>
+        <div class="ornament bg-[#D9A05B] right-[12%]" style="animation-delay: -2s;"></div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-8 mt-20 mb-16">
+        <div id="gift-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-10 gap-y-24 items-stretch">
+            <!-- 內容由 JavaScript 動態生成 -->
+        </div>
+
+        <div class="reset-container">
+            <button class="reset-btn" onclick="resetAll()">
+                ↺ 重新開始 (RESET)
+            </button>
+        </div>
+    </main>
+
+    <footer class="bg-[#3A322C] text-[#F5F1E6] py-20 text-center border-t-8 border-[#D9A05B]">
+        <p class="text-3xl md:text-5xl font-bold tracking-[0.5em] uppercase opacity-90">Merry Christmas</p>
+    </footer>
+
+    <script>
+        const giftData = [
+            { id: 1, adj: "實用的", verb: "保護", noun: "易碎品", color: "red" },
+            { id: 2, adj: "有用的", verb: "轉圈圈", noun: "Deco", color: "green" },
+            { id: 3, adj: "會讓你短暫<br>忘記煩惱的", verb: "把你從週一<br>打回週日", noun: "靈魂鬆動器", color: "red" },
+            { id: 4, adj: "麻雀雖小<br>五臟俱全", verb: "會隨時變化", noun: "奇蹟", color: "green" },
+            { id: 5, adj: "潮", verb: "洗頭", noun: "Paris", color: "red" },
+            { id: 6, adj: "可回溯的", verb: "捕捉", noun: "酷東西", color: "green" },
+            { id: 7, adj: "暖暖的", verb: "轉", noun: "幸福感", color: "red" },
+            { id: 8, adj: "熱熱的", verb: "買菜", noun: "菜市場", color: "green" },
+            { id: 9, adj: "一手可掌握的", verb: "噴", noun: "水", color: "red" },
+            { id: 10, adj: "兵兵蹦蹦的", verb: "旋轉", noun: "辦公室氣氛調解器", color: "green" },
+            { id: 11, adj: "很圓的", verb: "放", noun: "黑色", color: "red" }
+        ];
+
+        function createSnowflakes() {
+            const symbols = ['❄', '•'];
+            for (let i = 0; i < 30; i++) {
+                const flake = document.createElement('div');
+                flake.className = 'snowflake';
+                flake.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+                flake.style.left = Math.random() * 100 + 'vw';
+                flake.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                flake.style.fontSize = (Math.random() * 8 + 12) + 'px';
+                document.body.appendChild(flake);
+            }
+        }
+
+        function claimGift(element) {
+            if (element.classList.contains('is-claimed')) return;
+            element.classList.add('is-claimed');
+        }
+
+        function resetAll() {
+            document.querySelectorAll('.gift-box').forEach(box => {
+                box.classList.remove('is-claimed');
+            });
+        }
+
+        function initGifts() {
+            const container = document.getElementById('gift-grid');
+            giftData.forEach(g => {
+                const wrap = document.createElement('div');
+                wrap.className = 'w-full flex justify-center';
+                wrap.innerHTML = `
+                    <div class="gift-box gift-${g.color}" onclick="claimGift(this)">
+                        <div class="id-tag-container">
+                            <div class="id-tag-body">${g.id}</div>
+                        </div>
+                        
+                        <svg class="absolute" style="top:-38px; left:50%; transform:translateX(-50%); width:130px; z-index:30; filter:drop-shadow(6px 6px 0px rgba(0,0,0,0.12));" viewBox="0 0 140 100">
+                            <path d="M55 45 L30 85 L50 78 Z" fill="var(--color-bow-cream)" stroke="var(--color-dark)" stroke-width="7" stroke-linejoin="round"/>
+                            <path d="M85 45 L110 85 L90 78 Z" fill="var(--color-bow-cream)" stroke="var(--color-dark)" stroke-width="7" stroke-linejoin="round"/>
+                            
+                            <path d="M70 45 C45 5 15 25 15 45 C15 65 45 55 70 45 Z" fill="var(--color-bow-cream)" stroke="var(--color-dark)" stroke-width="8" stroke-linejoin="round"/>
+                            <path d="M70 45 C95 5 125 25 125 45 C125 65 95 55 70 45 Z" fill="var(--color-bow-cream)" stroke="var(--color-dark)" stroke-width="8" stroke-linejoin="round"/>
+                            
+                            <rect x="62" y="37" width="16" height="18" rx="5" fill="var(--color-dark)" stroke="var(--color-dark)" stroke-width="2"/>
+                        </svg>
+
+                        <div class="info-item">
+                            <span class="info-label">形容詞</span>
+                            <div class="info-text">${g.adj}</div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">動詞</span>
+                            <div class="info-text">${g.verb}</div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">名詞</span>
+                            <div class="info-text">${g.noun}</div>
+                        </div>
+
+                        <div class="claimed-overlay">
+                            <svg class="w-28 h-28 mb-4" viewBox="0 0 100 100" fill="none">
+                                <rect x="15" y="45" width="70" height="45" rx="8" stroke="white" stroke-width="10"/>
+                                <path d="M50 45V90M15 65H85" stroke="white" stroke-width="10"/>
+                                <path d="M50 45C30 15 5 45 50 45C95 45 70 15 50 45Z" fill="var(--color-yellow)" stroke="white" stroke-width="6"/>
+                            </svg>
+                            <div class="status-badge">有人選了！</div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(wrap);
+            });
+        }
+
+        window.onload = function() {
+            createSnowflakes();
+            initGifts();
+        };
+    </script>
+</body>
+</html>
