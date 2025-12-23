@@ -42,29 +42,29 @@
             overflow-x: hidden;
             background-image: radial-gradient(rgba(58, 50, 44, 0.05) 2px, transparent 0);
             background-size: 50px 50px;
-            letter-spacing: 0.15em; 
-            line-height: 1.8;
+            letter-spacing: 0.12em; 
+            line-height: 1.6;
         }
 
         /* 頁面最上方圖片容器 */
         .top-banner-container {
             background-color: var(--color-white);
-            padding: 1.5rem 1rem;
+            padding: 1rem 1rem;
             display: flex;
             justify-content: center;
             align-items: center;
             border-bottom: 2px solid rgba(58, 50, 44, 0.1);
         }
         .top-banner-img {
-            max-width: 300px;
+            max-width: 220px; /* 縮小 Banner 尺寸 */
             height: auto;
         }
 
-        /* 標題區域 */
+        /* 標題區域：縮減 padding 讓內容上移 */
         .festive-header {
             background-color: var(--color-red);
-            border-bottom: 10px solid var(--color-dark);
-            padding: 6rem 1rem;
+            border-bottom: 8px solid var(--color-dark);
+            padding: 4rem 1rem;
             text-align: center;
             position: relative;
         }
@@ -76,123 +76,123 @@
             text-shadow: none;
         }
         .header-line-1 {
-            font-size: clamp(1.8rem, 5vw, 3.2rem);
-            letter-spacing: 0.5em;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            letter-spacing: 0.4em;
             display: block;
-            margin-bottom: 1rem;
-            line-height: 1.8;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
         }
         .header-line-2 {
-            font-size: clamp(2.5rem, 8vw, 5.5rem);
-            letter-spacing: 0.35em;
+            font-size: clamp(2rem, 7vw, 4.5rem);
+            letter-spacing: 0.3em;
             display: block;
-            line-height: 1.3;
+            line-height: 1.2;
         }
 
-        /* 禮物卡片：統一寬度設定 */
+        /* 禮物卡片：調整寬度與縮小高度 */
         .gift-box {
-            border: 9px solid var(--color-dark); 
-            border-radius: 4rem;
+            border: 8px solid var(--color-dark); 
+            border-radius: 3.5rem;
             position: relative;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             overflow: visible; 
-            min-height: 520px;
+            min-height: 460px; /* 從 520px 調降 */
             width: 100%; 
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 7.5rem 1.5rem 3rem 1.5rem;
+            padding: 6rem 1.2rem 2.5rem 1.2rem;
             z-index: 1;
-            box-shadow: 12px 12px 0px rgba(58, 50, 44, 0.2);
+            box-shadow: 10px 10px 0px rgba(58, 50, 44, 0.15);
             background-color: var(--color-white);
         }
 
         .gift-box:hover:not(.is-claimed) {
-            transform: translateY(-12px) rotate(1.5deg);
-            box-shadow: 18px 18px 0px rgba(58, 50, 44, 0.25);
+            transform: translateY(-10px) rotate(1.5deg);
+            box-shadow: 14px 14px 0px rgba(58, 50, 44, 0.2);
         }
 
         .gift-red { background-color: var(--color-red); }
         .gift-green { background-color: var(--color-green); }
 
-        /* 吊牌標籤：洞洞縮小且離數字更遠 */
+        /* 吊牌標籤 */
         .id-tag-container {
             position: absolute;
-            top: 25px;
-            left: 25px;
+            top: 20px;
+            left: 20px;
             z-index: 40;
             transform: rotate(-10deg);
         }
         
         .id-tag-body {
             background-color: var(--color-yellow);
-            border: 7px solid var(--color-dark);
-            width: 80px;
-            height: 100px;
-            border-radius: 1.5rem;
+            border: 6px solid var(--color-dark);
+            width: 70px;
+            height: 90px;
+            border-radius: 1.2rem;
             display: flex;
             align-items: flex-end; 
             justify-content: center;
-            font-size: 2.8rem;
+            font-size: 2.4rem;
             font-weight: 700;
             color: var(--color-dark);
-            box-shadow: 5px 5px 0px rgba(58, 50, 44, 0.2);
+            box-shadow: 4px 4px 0px rgba(58, 50, 44, 0.15);
             position: relative;
-            padding-bottom: 8px;
+            padding-bottom: 6px;
             letter-spacing: normal;
         }
 
         .id-tag-body::before {
             content: '';
             position: absolute;
-            top: 8px; 
+            top: 10px; 
             left: 50%;
             transform: translateX(-50%);
-            width: 10px; 
-            height: 10px;
+            width: 8px; /* 縮小孔洞 */
+            height: 8px;
             background-color: var(--color-dark);
             border-radius: 50%;
             border: 2px solid rgba(255,255,255,0.4);
         }
 
-        /* 內容區塊樣式 */
+        /* 內容區塊樣式：縮小文字與間距 */
         .info-item {
             width: 100%;
-            margin-bottom: 1.6rem;
+            margin-bottom: 1.2rem;
             z-index: 10;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         .info-label {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 700; 
             color: var(--color-white);
             background-color: var(--color-dark);
-            padding: 5px 24px;
+            padding: 4px 20px;
             border-radius: 2rem;
-            margin-bottom: 10px;
-            border: 4px solid var(--color-dark);
-            letter-spacing: 0.2em;
+            margin-bottom: 8px;
+            border: 3px solid var(--color-dark);
+            letter-spacing: 0.15em;
         }
         .info-text {
             width: 95%;
-            min-height: 4.8rem;
+            min-height: 4rem;
             background-color: var(--color-white);
-            border: 7px solid var(--color-dark);
-            border-radius: 2.2rem;
+            border: 6px solid var(--color-dark);
+            border-radius: 2rem;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 0.8rem 1.4rem;
+            padding: 0.6rem 1.2rem;
             font-weight: 700;
-            font-size: 1.25rem;
-            line-height: 1.5;
+            font-size: 1.15rem;
+            line-height: 1.4;
             color: var(--color-dark);
-            box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
-            letter-spacing: 0.1em;
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.08);
+            letter-spacing: 0.05em;
         }
 
         /* 已選取遮罩 */
@@ -211,22 +211,22 @@
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.4s ease;
-            border-radius: 3.5rem;
+            border-radius: 3rem;
         }
         .is-claimed .claimed-overlay {
             opacity: 1;
             pointer-events: auto;
         }
         .status-badge {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 700;
             color: white;
             background-color: var(--color-red);
-            padding: 1.2rem 2.8rem;
+            padding: 1rem 2.5rem;
             border-radius: 4rem;
-            border: 6px solid white;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-            letter-spacing: 0.3em;
+            border: 5px solid white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            letter-spacing: 0.25em;
             transform: scale(0.8);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
@@ -236,34 +236,34 @@
 
         .reset-container {
             text-align: center;
-            padding-bottom: 6rem;
-            margin-top: 5rem;
+            padding-bottom: 4rem;
+            margin-top: 3rem;
         }
         .reset-btn {
             background-color: var(--color-yellow);
             color: var(--color-dark);
-            border: 8px solid var(--color-dark);
-            padding: 1.4rem 4.5rem;
-            font-size: 1.8rem;
+            border: 7px solid var(--color-dark);
+            padding: 1.2rem 4rem;
+            font-size: 1.6rem;
             font-weight: 700;
-            border-radius: 6rem;
-            box-shadow: 10px 10px 0px var(--color-dark);
+            border-radius: 5rem;
+            box-shadow: 8px 8px 0px var(--color-dark);
             transition: all 0.2s ease;
             cursor: pointer;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.1em;
         }
         .reset-btn:hover {
-            transform: translate(4px, 4px);
-            box-shadow: 6px 6px 0px var(--color-dark);
+            transform: translate(3px, 3px);
+            box-shadow: 5px 5px 0px var(--color-dark);
         }
 
         .ornament {
             position: absolute;
-            bottom: -45px;
-            width: 75px;
-            height: 75px;
+            bottom: -35px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            border: 7px solid var(--color-dark);
+            border: 6px solid var(--color-dark);
             box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
             animation: swing 4s ease-in-out infinite alternate;
             transform-origin: top center;
@@ -287,8 +287,8 @@
             <span class="header-line-1">2025無限創意行銷</span>
             <span class="header-line-2">聖誕節交換禮物</span>
         </h1>
-        <div class="mt-12">
-            <span class="text-xl md:text-3xl font-black bg-white text-dark px-16 py-7 rounded-full border-[10px] border-dark shadow-[14px 14px 0px rgba(0,0,0,0.15)] inline-block tracking-[0.4em]">
+        <div class="mt-8">
+            <span class="text-lg md:text-2xl font-black bg-white text-dark px-12 py-5 rounded-full border-[8px] border-dark shadow-[12px 12px 0px rgba(0,0,0,0.15)] inline-block tracking-[0.4em]">
                 哪個禮物最適合你！
             </span>
         </div>
@@ -300,9 +300,9 @@
         <div class="ornament bg-[#D9A05B] right-[12%]" style="animation-delay: -2s;"></div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-10 mt-44 mb-20">
-        <!-- 禮物卡片 Grid -->
-        <div id="gift-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-44 items-stretch">
+    <main class="max-w-7xl mx-auto px-8 mt-24 mb-16">
+        <!-- 調整間距確保標準比例下顯示完整 -->
+        <div id="gift-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-10 gap-y-24 items-stretch">
             <!-- 內容由 JavaScript 動態生成 -->
         </div>
 
@@ -313,12 +313,11 @@
         </div>
     </main>
 
-    <footer class="bg-[#3A322C] text-[#F5F1E6] py-32 text-center border-t-8 border-[#D9A05B]">
-        <p class="text-4xl md:text-6xl font-bold tracking-[0.5em] uppercase opacity-90">Merry Christmas</p>
+    <footer class="bg-[#3A322C] text-[#F5F1E6] py-24 text-center border-t-8 border-[#D9A05B]">
+        <p class="text-3xl md:text-5xl font-bold tracking-[0.5em] uppercase opacity-90">Merry Christmas</p>
     </footer>
 
     <script>
-        // 禮物資料
         const giftData = [
             { id: 1, adj: "實用的", verb: "保護", noun: "易碎品", color: "red" },
             { id: 2, adj: "有用的", verb: "轉圈圈", noun: "Deco", color: "green" },
@@ -333,34 +332,30 @@
             { id: 11, adj: "很圓的", verb: "放", noun: "黑色", color: "red" }
         ];
 
-        // 產生雪花
         function createSnowflakes() {
             const symbols = ['❄', '•'];
-            for (let i = 0; i < 35; i++) {
+            for (let i = 0; i < 30; i++) {
                 const flake = document.createElement('div');
                 flake.className = 'snowflake';
                 flake.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
                 flake.style.left = Math.random() * 100 + 'vw';
                 flake.style.animationDuration = (Math.random() * 4 + 6) + 's';
-                flake.style.fontSize = (Math.random() * 10 + 15) + 'px';
+                flake.style.fontSize = (Math.random() * 8 + 12) + 'px';
                 document.body.appendChild(flake);
             }
         }
 
-        // 領取禮物邏輯
         function claimGift(element) {
             if (element.classList.contains('is-claimed')) return;
             element.classList.add('is-claimed');
         }
 
-        // 重設禮物
         function resetAll() {
             document.querySelectorAll('.gift-box').forEach(box => {
                 box.classList.remove('is-claimed');
             });
         }
 
-        // 初始化禮物卡片
         function initGifts() {
             const container = document.getElementById('gift-grid');
             giftData.forEach(g => {
@@ -368,13 +363,11 @@
                 wrap.className = 'w-full flex justify-center';
                 wrap.innerHTML = `
                     <div class="gift-box gift-${g.color}" onclick="claimGift(this)">
-                        <!-- 吊牌標籤 -->
                         <div class="id-tag-container">
                             <div class="id-tag-body">${g.id}</div>
                         </div>
                         
-                        <!-- 蝴蝶結 SVG -->
-                        <svg class="absolute" style="top:-45px; left:50%; transform:translateX(-50%); width:160px; z-index:30; filter:drop-shadow(6px 6px 0px rgba(0,0,0,0.15));" viewBox="0 0 140 100">
+                        <svg class="absolute" style="top:-38px; left:50%; transform:translateX(-50%); width:130px; z-index:30; filter:drop-shadow(6px 6px 0px rgba(0,0,0,0.12));" viewBox="0 0 140 100">
                             <path d="M55 45 L30 85 L50 78 Z" fill="var(--color-bow-cream)" stroke="var(--color-dark)" stroke-width="7" stroke-linejoin="round"/>
                             <path d="M85 45 L110 85 L90 78 Z" fill="var(--color-bow-cream)" stroke="var(--color-dark)" stroke-width="7" stroke-linejoin="round"/>
                             
@@ -397,9 +390,8 @@
                             <div class="info-text">${g.noun}</div>
                         </div>
 
-                        <!-- 被領取後的遮罩 -->
                         <div class="claimed-overlay">
-                            <svg class="w-32 h-32 mb-6" viewBox="0 0 100 100" fill="none">
+                            <svg class="w-28 h-28 mb-4" viewBox="0 0 100 100" fill="none">
                                 <rect x="15" y="45" width="70" height="45" rx="8" stroke="white" stroke-width="10"/>
                                 <path d="M50 45V90M15 65H85" stroke="white" stroke-width="10"/>
                                 <path d="M50 45C30 15 5 45 50 45C95 45 70 15 50 45Z" fill="var(--color-yellow)" stroke="white" stroke-width="6"/>
