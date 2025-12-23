@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025無限創意行銷聖誕節交換禮物</title>
+    <!-- 引入圓體字體 M PLUS Rounded 1c 以及 Fredoka -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Fredoka:wght@400;500;600;700&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        :root {
+            --color-cream: #F5F1E6;     /* 溫暖米底色 */
+            --color-red: #AF3E3D;       /* 質感乾燥紅 */
+            --color-green: #3D6144;     /* 森林灰綠 */
+            --color-dark: #3A322C;      /* 深暖褐 / 灰黑底色 / 邊框色 */
+            --color-yellow: #D9A05B;    /* 吊牌標籤色 */
+            --color-white: #FFFFFF;
+            --color-bow-cream: #FFFDF0; /* 奶油色 / 標題文字色 */
+        }
+
+        /* 降雪效果 */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            z-index: 9999;
+            pointer-events: none;
+            animation: fall linear infinite;
+            color: white;
+            opacity: 0.5;
+        }
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        body {
+            font-family: 'Fredoka', 'M PLUS Rounded 1c', 'Noto Sans TC', sans-serif;
+            background-color: var(--color-cream);
+            color: var(--color-dark);
+            margin: 0;
+            overflow-x: hidden;
+            background-image: radial-gradient(rgba(58, 50, 44, 0.05) 2px, transparent 0);
+            background-size: 50px 50px;
+            letter-spacing: 0.15em; 
+            line-height: 1.8;
+        }
+
+        /* 頁面最上方圖片容器 */
+        .top-banner-container {
+            background-color: var(--color-white);
+            padding: 1.5rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 2px solid rgba(58, 50, 44, 0.1);
+        }
+        .top-banner-img {
+            max-width: 300px;
+            height: auto;
+        }
+
+        /* 標題區域 */
+        .festive-header {
+            background-color: var(--color-red);
+            border-bottom: 10px solid var(--color-dark);
+            padding: 6rem 1rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header-text {
+            color: var(--color-bow-cream);
+            font-family: 'M PLUS Rounded 1c', sans-serif;
+            font-weight: 700;
+            text-shadow: none;
+        }
+        .header-line-1 {
+            font-size: clamp(1.8rem, 5vw, 3.2rem);
+            letter-spacing: 0.5em;
+            display: block;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        .header-line-2 {
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            letter-spacing: 0.35em;
+            display: block;
+            line-height: 1.3;
+        }
+
+        /* 禮物卡片：統一寬度設定 */
+        .gift-box {
+            border: 9px solid var(--color-dark); 
+            border-radius: 4rem;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            overflow: visible; 
+            min-height: 520px;
+            width: 100%; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 7.5rem 1.5rem 3rem 1.5rem;
+            z-index: 1;
+            box-shadow: 12px 12px 0px rgba(58, 50, 44, 0.2);
+            background-color: var(--color-white);
+        }
+
+        .gift-box:hover:not(.is-claimed) {
+            transform: translateY(-12px) rotate(1.5deg);
+            box-shadow: 18px 18px 0px rgba(58, 50, 44, 0.25);
+        }
+
+        .gift-red { background-color: var(--color-red); }
+        .gift-green { background-color: var(--color-green); }
+
+        /* 吊牌標籤：洞洞縮小且離數字更遠 */
+        .id-tag-container {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            z-index: 40;
+            transform: rotate(-10deg);
+        }
+        
+        .id-tag-body {
+            background-color: var(--color-yellow);
+            border: 7px solid var(--color-dark);
+            width: 80px;
+            height: 100px;
+            border-radius: 1.5rem;
+            display: flex;
+            align-items: flex-end; 
+            justify-content: center;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--color-dark);
+            box-shadow: 5px 5px 0px rgba(58, 50, 44, 0.2);
+            position: relative;
+            padding-bottom: 8px;
+            letter-spacing: normal;
+        }
+
+        .id-tag-body::before {
+            content: '';
+            position: absolute;
+            top: 8px; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px; 
+            height: 10px;
+            background-color: var(--color-dark);
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.4);
+        }
+
+        /* 內容區塊樣式 */
+        .info-item {
+            width: 100%;
+            margin-bottom: 1.6rem;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .info-label {
+            font-size: 0.9rem;
+            font-weight: 700; 
+            color: var(--color-white);
+            background-color: var(--color-dark);
+            padding: 5px 24px;
+            border-radius: 2rem;
+            margin-bottom: 10px;
+            border: 4px solid var(--color-dark);
+            letter-spacing: 0.2em;
+        }
+        .info-text {
+            width: 95%;
+            min-height: 4.8rem;
+            background-color: var(--color-white);
+            border: 7px solid var(--color-dark);
+            border-radius: 2.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0.8rem 1.4rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+            line-height: 1.5;
+            color: var(--color-dark);
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.1);
+            letter-spacing: 0.1em;
+        }
+
+        /* 已選取遮罩 */
+        .claimed-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(58, 50, 44, 0.96);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            border-radius: 3.5rem;
+        }
+        .is-claimed .claimed-overlay {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .status-badge {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            background-color: var(--color-red);
+            padding: 1.2rem 2.8rem;
+            border-radius: 4rem;
+            border: 6px solid white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            letter-spacing: 0.3em;
+            transform: scale(0.8);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .is-claimed .status-badge {
+            transform: scale(1);
+        }
+
+        .reset-container {
+            text-align: center;
+            padding-bottom: 6rem;
+            margin-top: 5rem;
+        }
+        .reset-btn {
+            background-color: var(--color-yellow);
+            color: var(--color-dark);
+            border: 8px solid var(--color-dark);
+            padding: 1.4rem 4.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            border-radius: 6rem;
+            box-shadow: 10px 10px 0px var(--color-dark);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            letter-spacing: 0.15em;
+        }
+        .reset-btn:hover {
+            transform: translate(4px, 4px);
+            box-shadow: 6px 6px 0px var(--color-dark);
+        }
+
+        .ornament {
+            position: absolute;
+            bottom: -45px;
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            border: 7px solid var(--color-dark);
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+            animation: swing 4s ease-in-out infinite alternate;
+            transform-origin: top center;
+            z-index: 50;
+        }
+        @keyframes swing {
+            from { transform: rotate(-10deg); }
+            to { transform: rotate(10deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 頁面最上方圖片區 -->
+    <div class="top-banner-container">
+        <img src="https://lurl.cc/LaNgW" alt="Top Banner" class="top-banner-img" onerror="this.style.display='none'">
+    </div>
+
+    <header class="festive-header">
+        <h1 class="header-text px-4">
+            <span class="header-line-1">2025無限創意行銷</span>
+            <span class="header-line-2">聖誕節交換禮物</span>
+        </h1>
+        <div class="mt-12">
+            <span class="text-xl md:text-3xl font-black bg-white text-dark px-16 py-7 rounded-full border-[10px] border-dark shadow-[14px 14px 0px rgba(0,0,0,0.15)] inline-block tracking-[0.4em]">
+                哪個禮物最適合你！
+            </span>
+        </div>
+        
+        <div class="ornament bg-[#D9A05B] left-[12%]"></div>
+        <div class="ornament bg-[#3D6144] left-[32%] hidden md:block" style="animation-delay: -0.8s;"></div>
+        <div class="ornament bg-[#FFFFFF] left-[50%]" style="animation-delay: -1s;"></div>
+        <div class="ornament bg-[#3D6144] right-[32%] hidden md:block" style="animation-delay: -1.5s;"></div>
+        <div class="ornament bg-[#D9A05B] right-[12%]" style="animation-delay: -2s;"></div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-10 mt-44 mb-20">
+        <!-- 禮物卡片 Grid -->
+        <div id="gift-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-12 gap-y-44 items-stretch">
+            <!-- 內容由 JavaScript 動態生成 -->
+        </div>
+
+        <div class="reset-container">
+            <button class="reset-btn" onclick="resetAll()">
+                ↺ 重新開始 (RESET)
+            </button>
+        </div>
+    </main>
+
+    <footer class="bg-[#3A322C] text-[#F5F1E6] py-32 text-center border-t-8 border-[#D9A05B]">
+        <p class="text-4xl md:text-6xl font-bold tracking-[0.5em] uppercase opacity-90">Merry Christmas</p>
+    </footer>
+
+    <script>
+        // 禮物資料
+        const giftData = [
+            { id: 1, adj: "實用的", verb: "保護", noun: "易碎品", color: "red" },
+            { id: 2, adj: "有用的", verb: "轉圈圈", noun: "Deco", color: "green" },
+            { id: 3, adj: "會讓你短暫<br>忘記煩惱的", verb: "把你從週一<br>打回週日", noun: "靈魂鬆動器", color: "red" },
+            { id: 4, adj: "麻雀雖小<br>五臟俱全", verb: "會隨時變化", noun: "奇蹟", color: "green" },
+            { id: 5, adj: "潮", verb: "洗頭", noun: "Paris", color: "red" },
+            { id: 6, adj: "可回溯的", verb: "捕捉", noun: "酷東西", color: "green" },
+            { id: 7, adj: "暖暖的", verb: "轉", noun: "幸福感", color: "red" },
+            { id: 8, adj: "熱熱的", verb: "買菜", noun: "菜市場", color: "green" },
+            { id: 9, adj: "一手可掌握的", verb: "噴", noun: "水", color: "red" },
+            { id: 10, adj: "兵兵蹦蹦的", verb: "旋轉", noun: "辦公室氣氛調解器", color: "green" },
+            { id: 11, adj: "很圓的", verb: "放", noun: "黑色", color: "red" }
+        ];
+
+        // 產生雪花
+        function createSnowflakes() {
+            const symbols = ['❄', '•'];
+            for (let i = 0; i < 35; i++) {
+                const flake = document.createElement('div');
+                flake.className = 'snowflake';
+                flake.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+                flake.style.left = Math.random() * 100 + 'vw';
+                flake.style.animationDuration = (Math.random() * 4 + 6) + 's';
+                flake.style.fontSize = (Math.random() * 10 + 15) + 'px';
+                document.body.appendChild(flake);
+            }
+        }
+
+        // 領取禮物邏輯
+        function claimGift(element) {
+            if (element.classList.contains('is-claimed')) return;
+            element.classList.add('is-claimed');
+        }
+
+        // 重設禮物
+        function resetAll() {
+            document.querySelectorAll('.gift-box').forEach(box => {
+                box.classList.remove('is-claimed');
+            });
+        }
+
+        // 初始化禮物卡片
+        function initGifts() {
+            const container = document.getElementById('gift-grid');
+            giftData.forEach(g => {
+                const wrap = document.createElement('div');
+                wrap.className = 'w-full flex justify-center';
+                wrap.innerHTML = `
+                    <div class="gift-box gift-${g.color}" onclick="claimGift(this)">
+                        <!-- 吊牌標籤 -->
+                        <div class="id-tag-container">
+                            <div class="id-tag-body">${g.id}</div>
+                        </div>
+                        
+                        <!-- 蝴蝶結 SVG -->
+                        <svg class="absolute" style="top:-45px; left:50%; transform:translateX(-50%); width:160px; z-index:30; filter:drop-shadow(6px 6px 0px rgba(0,0,0,0.15));" viewBox="0 0 140 100">
+                            <path d="M55 45 L30 85 L50 78 Z" fill="var(--color-bow-cream)" stroke="var(--color-dark)" stroke-width="7" stroke-linejoin="round"/>
+                            <path d="M85 45 L110 85 L90 78 Z" fill="var(--color-bow-cream)" stroke="var(--color-dark)" stroke-width="7" stroke-linejoin="round"/>
+                            
+                            <path d="M70 45 C45 5 15 25 15 45 C15 65 45 55 70 45 Z" fill="var(--color-bow-cream)" stroke="var(--color-dark)" stroke-width="8" stroke-linejoin="round"/>
+                            <path d="M70 45 C95 5 125 25 125 45 C125 65 95 55 70 45 Z" fill="var(--color-bow-cream)" stroke="var(--color-dark)" stroke-width="8" stroke-linejoin="round"/>
+                            
+                            <rect x="62" y="37" width="16" height="18" rx="5" fill="var(--color-dark)" stroke="var(--color-dark)" stroke-width="2"/>
+                        </svg>
+
+                        <div class="info-item">
+                            <span class="info-label">形容詞</span>
+                            <div class="info-text">${g.adj}</div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">動詞</span>
+                            <div class="info-text">${g.verb}</div>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">名詞</span>
+                            <div class="info-text">${g.noun}</div>
+                        </div>
+
+                        <!-- 被領取後的遮罩 -->
+                        <div class="claimed-overlay">
+                            <svg class="w-32 h-32 mb-6" viewBox="0 0 100 100" fill="none">
+                                <rect x="15" y="45" width="70" height="45" rx="8" stroke="white" stroke-width="10"/>
+                                <path d="M50 45V90M15 65H85" stroke="white" stroke-width="10"/>
+                                <path d="M50 45C30 15 5 45 50 45C95 45 70 15 50 45Z" fill="var(--color-yellow)" stroke="white" stroke-width="6"/>
+                            </svg>
+                            <div class="status-badge">有人選了！</div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(wrap);
+            });
+        }
+
+        window.onload = function() {
+            createSnowflakes();
+            initGifts();
+        };
+    </script>
+</body>
+</html>
