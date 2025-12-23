@@ -56,15 +56,15 @@
             border-bottom: 2px solid rgba(58, 50, 44, 0.1);
         }
         .top-banner-img {
-            max-width: 220px; /* 縮小 Banner 尺寸 */
+            max-width: 200px; /* 稍微縮小 Logo 使整體更緊湊 */
             height: auto;
         }
 
-        /* 標題區域：縮減 padding 讓內容上移 */
+        /* 標題區域 */
         .festive-header {
             background-color: var(--color-red);
             border-bottom: 8px solid var(--color-dark);
-            padding: 4rem 1rem;
+            padding: 3.5rem 1rem; /* 縮減 Padding */
             text-align: center;
             position: relative;
         }
@@ -76,20 +76,20 @@
             text-shadow: none;
         }
         .header-line-1 {
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-size: clamp(1.4rem, 4vw, 2.2rem);
             letter-spacing: 0.4em;
             display: block;
             margin-bottom: 0.5rem;
             line-height: 1.6;
         }
         .header-line-2 {
-            font-size: clamp(2rem, 7vw, 4.5rem);
+            font-size: clamp(1.8rem, 7vw, 4rem);
             letter-spacing: 0.3em;
             display: block;
             line-height: 1.2;
         }
 
-        /* 禮物卡片：調整寬度與縮小高度 */
+        /* 禮物卡片：調大 padding-top 以拉開文字與吊牌/蝴蝶結的距離 */
         .gift-box {
             border: 8px solid var(--color-dark); 
             border-radius: 3.5rem;
@@ -97,12 +97,12 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
             overflow: visible; 
-            min-height: 460px; /* 從 520px 調降 */
+            min-height: 460px;
             width: 100%; 
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 6rem 1.2rem 2.5rem 1.2rem;
+            padding: 7.5rem 1.2rem 2.5rem 1.2rem; /* padding-top 從 6rem 增加到 7.5rem */
             z-index: 1;
             box-shadow: 10px 10px 0px rgba(58, 50, 44, 0.15);
             background-color: var(--color-white);
@@ -116,25 +116,25 @@
         .gift-red { background-color: var(--color-red); }
         .gift-green { background-color: var(--color-green); }
 
-        /* 吊牌標籤 */
+        /* 吊牌標籤：往角落移動一點，與蝴蝶結拉開距離 */
         .id-tag-container {
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 15px; /* 稍微上移 */
+            left: 15px; /* 稍微左移 */
             z-index: 40;
-            transform: rotate(-10deg);
+            transform: rotate(-12deg);
         }
         
         .id-tag-body {
             background-color: var(--color-yellow);
             border: 6px solid var(--color-dark);
-            width: 70px;
-            height: 90px;
+            width: 65px; /* 稍微縮小寬度 */
+            height: 85px; /* 稍微縮小高度 */
             border-radius: 1.2rem;
             display: flex;
             align-items: flex-end; 
             justify-content: center;
-            font-size: 2.4rem;
+            font-size: 2.2rem; /* 配合縮小尺寸調整字級 */
             font-weight: 700;
             color: var(--color-dark);
             box-shadow: 4px 4px 0px rgba(58, 50, 44, 0.15);
@@ -149,14 +149,14 @@
             top: 10px; 
             left: 50%;
             transform: translateX(-50%);
-            width: 8px; /* 縮小孔洞 */
+            width: 8px; 
             height: 8px;
             background-color: var(--color-dark);
             border-radius: 50%;
             border: 2px solid rgba(255,255,255,0.4);
         }
 
-        /* 內容區塊樣式：縮小文字與間距 */
+        /* 內容區塊樣式 */
         .info-item {
             width: 100%;
             margin-bottom: 1.2rem;
@@ -195,7 +195,7 @@
             letter-spacing: 0.05em;
         }
 
-        /* 已選取遮罩 */
+        /* 已選取遮罩：放大文字比例 */
         .claimed-overlay {
             position: absolute;
             top: 0;
@@ -218,17 +218,18 @@
             pointer-events: auto;
         }
         .status-badge {
-            font-size: 1.6rem;
+            font-size: 2.2rem; /* 文字比例放大 (原 1.6rem) */
             font-weight: 700;
             color: white;
             background-color: var(--color-red);
-            padding: 1rem 2.5rem;
+            padding: 1.2rem 3rem; /* 增加內距 */
             border-radius: 4rem;
             border: 5px solid white;
             box-shadow: 0 8px 20px rgba(0,0,0,0.4);
             letter-spacing: 0.25em;
             transform: scale(0.8);
             transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            white-space: nowrap;
         }
         .is-claimed .status-badge {
             transform: scale(1);
@@ -287,7 +288,7 @@
             <span class="header-line-1">2025無限創意行銷</span>
             <span class="header-line-2">聖誕節交換禮物</span>
         </h1>
-        <div class="mt-8">
+        <div class="mt-6">
             <span class="text-lg md:text-2xl font-black bg-white text-dark px-12 py-5 rounded-full border-[8px] border-dark shadow-[12px 12px 0px rgba(0,0,0,0.15)] inline-block tracking-[0.4em]">
                 哪個禮物最適合你！
             </span>
@@ -300,8 +301,7 @@
         <div class="ornament bg-[#D9A05B] right-[12%]" style="animation-delay: -2s;"></div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-8 mt-24 mb-16">
-        <!-- 調整間距確保標準比例下顯示完整 -->
+    <main class="max-w-7xl mx-auto px-8 mt-20 mb-16">
         <div id="gift-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-10 gap-y-24 items-stretch">
             <!-- 內容由 JavaScript 動態生成 -->
         </div>
@@ -313,7 +313,7 @@
         </div>
     </main>
 
-    <footer class="bg-[#3A322C] text-[#F5F1E6] py-24 text-center border-t-8 border-[#D9A05B]">
+    <footer class="bg-[#3A322C] text-[#F5F1E6] py-20 text-center border-t-8 border-[#D9A05B]">
         <p class="text-3xl md:text-5xl font-bold tracking-[0.5em] uppercase opacity-90">Merry Christmas</p>
     </footer>
 
